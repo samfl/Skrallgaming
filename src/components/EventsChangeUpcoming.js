@@ -1,57 +1,58 @@
 import React, { Component } from 'react';
 import { firestoreDb } from '..';
 
-class StatsChange extends Component {
+class EventsChangeUpcoming extends Component {
     constructor() {
         super();
 
         this.state = {
-            nick: "",
+            name: "",
             field: "", 
             val: "",
             formStatus: "update",
             loading: false,
             dataChanged: null,
             dataStatus: null,
-            selectField: "main"
+            selectField: "name"
         }; 
 
         this.backToMenuClick = this.backToMenuClick.bind(this);
-        this.backToStatsClick = this.backToStatsClick.bind(this);
+        this.backToHistoryClick = this.backToHistoryClick.bind(this);
         this.updateField = this.updateField.bind(this);
         this.handleChange = this.handleChange.bind(this);
+        this.handleChangeString = this.handleChangeString.bind(this);
         this.handleClick = this.handleClick.bind(this);
-        this.handleAddPlayer = this.handleAddPlayer.bind(this);
-        this.handleDeletePlayer = this.handleDeletePlayer.bind(this);
+        this.handleAddEvent = this.handleAddEvent.bind(this);
+        this.handleDeleteEvent = this.handleDeleteEvent.bind(this);
         this.handleSelectChange = this.handleSelectChange.bind(this);
     }
-
+q
     backToMenuClick = () => {
         this.props.history.push("/nav");
     }
 
-    backToStatsClick = () => {
-        this.props.history.push("/stats");
+    backToHistoryClick = () => {
+        this.props.history.push("/events");
     }
 
-    handleDeletePlayer = (e) => {
+    handleDeleteEvent = (e) => {
         this.setState({
             loading: true
         });
         e.preventDefault();
 
-        if(this.state.nickOne === this.state.nickTwo) {
-            if(this.state.nickOne && this.state.nickTwo) {
-                firestoreDb.collection('players').doc(this.state.nickOne).delete().then( () => 
+        if(this.state.eventOne === this.state.eventTwo) {
+            if(this.state.eventOne && this.state.eventTwo) {
+                firestoreDb.collection('upcoming').doc(this.state.eventOne).delete().then( () => 
                     console.log("Document deleted successfully")
                 ).catch(err => console.log("Found delete-errors: " + err));
 
                 this.setState({
                     dataStatus: "ok_del",
-                    dataChanged: this.state.nickOne
+                    dataChanged: this.state.eventOne
                 });
             } else {
-                console.log("Missing nick..");
+                console.log("Missing name..");
                 this.setState({
                     dataStatus: "not_ok_del",
                     dataChanged: null,
@@ -59,7 +60,7 @@ class StatsChange extends Component {
             }
 
         } else {
-            console.log("Nick-name 1 and Nick-name 2 are not the same..");
+            console.log("name-name 1 and name-name 2 are not the same..");
             this.setState({
                 dataStatus: "not_ok_del"
             });
@@ -73,28 +74,30 @@ class StatsChange extends Component {
         e.target.reset();
     }
 
-    handleAddPlayer = (e) => {
+    handleAddEvent = (e) => {
         this.setState({
             loading: true
         });
         e.preventDefault();
-        if(this.state.nick) {
-            firestoreDb.collection('players').doc(this.state.nick).set({
-                nick: this.state.nick,
-                main: this.state.main,
-                sec: this.state.sec,
-                rating: Number(this.state.rating), 
-                img: this.state.img
+        if(this.state.name) {
+            firestoreDb.collection('upcoming').doc(this.state.name).set({
+                name: this.state.name,
+                links: this.state.links,
+                hosts: this.state.hosts,
+                location: this.state.location, 
+                beerpongInfo: this.state.beerpongInfo,
+                smashInfo: this.state.smashInfo,
+                date: new Date()
             }).catch(err => console.log("Found set-errors: " + err));
         } else {
-            console.log("Enter a nick-name..");
+            console.log("Enter a name-name..");
         }
 
-        if(this.state.nick) {
-            firestoreDb.collection('players').doc(this.state.nick).get().then(doc => {
+        if(this.state.name) {
+            firestoreDb.collection('upcoming').doc(this.state.name).get().then(doc => {
                 if(doc.exists) {
                     this.setState({ 
-                        dataChanged: this.state.nick,
+                        dataChanged: this.state.name,
                         dataStatus:  "ok_add"
                     });
                 } else {
@@ -125,11 +128,11 @@ class StatsChange extends Component {
         });
 
         e.preventDefault();
-        firestoreDb.collection('players').where('nick', '==', this.state.nick).get().then(snap => {
-            if(snap && this.state.nick) {
+        firestoreDb.collection('upcoming').where('name', '==', this.state.name).get().then(snap => {
+            if(snap && this.state.name) {
                 snap.forEach(currentDoc => {
                     if(currentDoc) {
-                            firestoreDb.collection('players').doc(currentDoc.id).update({
+                            firestoreDb.collection('upcoming').doc(currentDoc.id).update({
                                 [this.state.selectField]: this.state.val
                             }).catch(err => {
                                 console.log("Errors in stats update: " + err);
@@ -144,11 +147,11 @@ class StatsChange extends Component {
             }
         }).catch(err => console.log("Errors in DB connection: " + err));
         
-        if(this.state.nick) {
-            firestoreDb.collection('players').doc(this.state.nick).get().then(doc => {
+        if(this.state.name) {
+            firestoreDb.collection('upcoming').doc(this.state.name).get().then(doc => {
                 if(doc.exists) {
                     this.setState({ 
-                        dataChanged: this.state.nick,
+                        dataChanged: this.state.name,
                         dataStatus:  "ok_upd"
                     });
                 } else {
@@ -180,6 +183,17 @@ class StatsChange extends Component {
         });
     }
 
+    handleChangeString = (e) => {
+        e.preventDefault();
+        let string = e.target.value; 
+        let arr = string.split(",");
+        console.log(arr);
+        console.log(e.target.name);
+        this.setState({
+            [e.target.name]: arr
+        });
+    }
+
     handleSelectChange = (e) => {
         console.log(this.state.selectField);
         console.log( e.target.value);
@@ -200,7 +214,6 @@ class StatsChange extends Component {
         let loading = null;
         let activeForm = null;
         let updateResults = null; 
-
         if(this.state.loading) {
             loading = (<div className="loading"></div>);
         }
@@ -217,7 +230,6 @@ class StatsChange extends Component {
             updateResults = (<div className="updateResultsSuccess">Successfully deleted {this.state.dataChanged}</div>);
         } else if(this.state.dataStatus === "not_ok_del" && !this.state.loading) {
             updateResults = (<div className="updateResultsFail">Delete could not be performed</div>);
-            
         } else {
             updateResults = null;
         }
@@ -226,31 +238,35 @@ class StatsChange extends Component {
             activeForm = (
                 <div className="updateFormDiv">
                     <div className="updateFormDivInner">
-                        <form id="updateForm" onSubmit={this.handleAddPlayer}> 
+                        <form id="updateForm" onSubmit={this.handleAddEvent}> 
                             <div className="updateStatsInputHeader">
                                 <h2>Add</h2>
                             </div>
                             <div className="updateStatsInput">
-                                <label>Name (nick)</label>
-                                <input type="text" name="nick" onChange={this.handleChange} autoComplete="off" />
+                                <label>Name (upcoming event)</label>
+                                <input type="text" name="name" onChange={this.handleChange} autoComplete="off" />
                             </div>
                             <div className="updateStatsInput">
-                                <label>Rating (value)</label>
-                                <input className="numberInputInStatsChange" type="number" name="rating" onChange={this.handleChange} autoComplete="off" min="1300" max="1600"/>
+                                <label>Links (url)</label>
+                                <input className="numberInputInStatsChange" type="text" name="links" onChange={this.handleChange} autoComplete="off" />
                             </div>
                             <div className="updateStatsInput">
-                                <label>Main (hero)</label>
-                                <input type="text" name="main" onChange={this.handleChange} autoComplete="off" />
+                                <label>Hosts (names)</label>
+                                <input type="text" name="hosts" onChange={this.handleChangeString} autoComplete="off" />
                             </div>
                             <div className="updateStatsInput">
-                                <label>Secondary (hero)</label>
-                                <input type="text" name="sec" onChange={this.handleChange} autoComplete="off" />
+                                <label>Location (adress</label>
+                                <input type="text" name="location" onChange={this.handleChange} autoComplete="off" />
                             </div>
                             <div className="updateStatsInput">
-                                <label>Profile image (url)</label>
-                                <input type="text" name="img" onChange={this.handleChange} autoComplete="off" />
+                                <label>Beerpong info</label>
+                                <input type="text" name="beerpongInfo" onChange={this.handleChangeString} autoComplete="off" />
                             </div>
-                            <input className="updateForm" type="submit" value="Add" />
+                            <div className="updateStatsInput">
+                                <label>Smash info</label>
+                                <input type="text" name="smashInfo" onChange={this.handleChangeString} autoComplete="off" />
+                            </div>
+                            <input className="updateForm" type="submit" value   ="Add" />
                         </form>
                     </div>
                 </div>
@@ -259,17 +275,17 @@ class StatsChange extends Component {
             activeForm = (
                 <div className="updateFormDiv">
                     <div className="updateFormDivInner">
-                        <form id="updateForm" onSubmit={this.handleDeletePlayer}> 
+                        <form id="updateForm" onSubmit={this.handleDeleteEvent}> 
                             <div className="updateStatsInputHeader">
                                 <h2>Delete</h2>
                             </div>
                             <div className="updateStatsInput">
-                                <label>Name (nick)</label>
-                                <input type="text" name="nickOne" onChange={this.handleChange} autoComplete="off" />
+                                <label>Name (upcoming event)</label>
+                                <input type="text" name="eventOne" onChange={this.handleChange} autoComplete="off" />
                             </div>
                             <div className="updateStatsInput">
                                 <label>Name (repeat)</label>
-                                <input type="text" name="nickTwo" onChange={this.handleChange} autoComplete="off" />
+                                <input type="text" name="eventTwo" onChange={this.handleChange} autoComplete="off" />
                             </div>
                             <input className="updateForm" type="submit" value="Delete" />
                         </form>
@@ -285,17 +301,18 @@ class StatsChange extends Component {
                                 <h2>Update field</h2>
                             </div>
                             <div className="updateStatsInput">
-                                <label>Name (nick)</label>
-                                <input type="text" name="nick" onChange={this.handleChange} autoComplete="off" />
+                                <label>Name (upcoming event)</label>
+                                <input type="text" name="name" onChange={this.handleChange} autoComplete="off" />
                             </div>
                             <div className="updateStatsInput">
                                 <label>Enter field to change</label>
                                 <select name="field" value={this.state.selectField} className="selectInChangeStats" onChange={this.handleSelectChange}>
-                                    <option value="main">main</option>
-                                    <option value="sec">sec</option>
-                                    <option value="rating">rating</option>
-                                    <option value="img">img</option>
-                                    <option value="password">password</option>
+                                    <option value="name">name</option>
+                                    <option value="participants">participants</option>
+                                    <option value="hosts">hosts</option>
+                                    <option value="location">location</option>
+                                    <option value="beerpong winners">Beerpong winners</option>
+                                    <option value="smash winners">Smash winners</option>
                                 </select>
                             </div>
                             <div className="updateStatsInput">
@@ -313,10 +330,10 @@ class StatsChange extends Component {
             <div className="outerCon">
                 <div className="innerCon">
                     <div className="innerHeaderCon">
-                        <h1>Change stats</h1>
+                        <h1>Change upcom</h1>
                         <div className="menuButtonWrapper">
-                            <button onClick={this.backToStatsClick}>Back to stats</button>
-                            <button onClick={this.backToMenuClick}>Back to menu</button>
+                            <button className="mainBtn" onClick={this.backToHistoryClick}>Back to events</button>
+                            <button className="mainBtn" onClick={this.backToMenuClick}>Back to menu</button>
                         </div>
                     </div>
                 </div>
@@ -346,4 +363,4 @@ class StatsChange extends Component {
     }
 }
 
-export default StatsChange;
+export default EventsChangeUpcoming;

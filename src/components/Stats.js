@@ -10,10 +10,15 @@ class Stats extends Component {
             loading: false
         }
         this.backToMenuClick = this.backToMenuClick.bind(this);
+        this.goToChangeStats = this.goToChangeStats.bind(this);
     }
 
     backToMenuClick() {
         this.props.history.push("/nav");
+    }
+
+    goToChangeStats() {
+        this.props.history.push("/changeStats");
     }
 
     componentDidMount() {
@@ -38,7 +43,6 @@ class Stats extends Component {
 
     render() {
         let loadingElem = null; 
-
         if(this.state.loading) {
             loadingElem = (<div className="loading"></div>);
         }
@@ -48,8 +52,14 @@ class Stats extends Component {
                 <div className="innerCon">
                     <div className="innerHeaderCon">
                         <h1>Stats</h1>
-                        <button onClick={this.backToMenuClick}>Back to menu</button>
+
+                        <div className="menuButtonWrapper">
+                            <button className="mainBtn" onClick={this.goToChangeStats}>Change stats</button>
+                            <button className="mainBtn" onClick={this.backToMenuClick}>Back to menu</button>
+                        </div>
                     </div>
+                </div>
+                <div className="innerConStats">
                 </div>
                 <div className="playersOutDiv">
                     <table className="playersTable">

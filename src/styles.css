@@ -18,8 +18,12 @@ html, body {
 }
 
 #home-2 {
+    display: flex; 
+    flex-direction: column;
+    align-items: center;
     border: 1px solid grey; 
     padding: 5px; 
+
 }
 
 .itemInForm {
@@ -125,7 +129,6 @@ html, body {
 .innerCon {
     display: flex;
     justify-content: center;
-
 }
 
 .innerHeaderCon {
@@ -133,6 +136,7 @@ html, body {
     display: flex;
     width: 350px;   
     justify-content: space-between;
+    padding: 5px; 
 }
 
 .player-info {
@@ -153,7 +157,6 @@ html, body {
     display: flex; 
     justify-content: center;
     align-items: center;
-    margin-top: 5px; 
 }
 
 .loading {
@@ -189,28 +192,28 @@ html, body {
     border-collapse: collapse;
 }
 
-tr:nth-child(even) {
+.playersTable tr:nth-child(even) {
     background-color: #d0d3ba;
 }
 
-tr:nth-child(odd) {
+.playersTable tr:nth-child(odd) {
     background-color: #ddddd9;
   }
 
-th {
-    background-color: #d0d3ba;
+.playersTable th {
+    background-color: #b3ba7e;
     text-align: left;
     padding: 5px;
     border-bottom: 1px solid black;
 }
 
-td {
+.playersTable td {
     text-align: left;
     padding: 5px;
     border-bottom: 1px solid black;
   }
 
-  tr {
+  .playersTable tr {
     border-bottom: 1px solid black;
   }
 
@@ -278,4 +281,324 @@ td {
 
 .numberInputInStatsChange {
     width: 153px; 
+}
+
+#stats-link {
+}
+
+.innerConStats {
+    display: flex;
+    justify-content: center;
+}
+
+.changeStatsLink {
+    display: flex;
+    justify-content: center;
+    width: 350px; 
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+    background-color: slategrey;
+    padding-top: 3px; 
+    padding-bottom: 3px; 
+}
+
+.menuButtonWrapper {
+    height: 100%;
+
+}
+
+.menuButtonWrapper button {
+    height: 100%; 
+}
+
+.innerhistoryWrapper {
+    width: 350px; 
+}
+
+.innerhistoryWrapper img{
+    width: 150px; 
+}
+
+.historyContent {
+    width: 350px; 
+    display: flex;
+    justify-content: center;
+    background-color: #ddddd9;
+    border-bottom: 1px solid black; 
+    flex-direction: column;
+    align-items: center;
+}
+
+.historyContentEven {
+    width: 350px; 
+    display: flex;
+    justify-content: center;
+    background-color: #9120aa;
+}
+
+.eventWrapper{
+    width: 330px; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border: 1px  solid black; 
+    padding: 5px; 
+    margin: 5px; 
+}
+
+.eventWrapperInner {
+    width: 330px; 
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    background-color: #ddddd9;
+    color: black; 
+}
+
+.eventWrapperInnerEven {
+    width: 330px; 
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    color: black; 
+}
+
+.eventHeader {
+    font-weight: bold; 
+    font-size: 18px; 
+    text-align: center; 
+    text-decoration: underline;
+    background-color: #d0d3ba;
+}
+
+.eventWrapperItem {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: #ddddd9;
+}
+
+.eventWrapperItemEven {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: #d0d3ba;
+}
+
+#home-2 img{
+    width: 150px; 
+}
+
+.historyTable {
+    border-collapse: collapse;
+    width: 330px; 
+}
+
+.historyTable .historyHeader{
+    text-align: center;
+    font-size: 20px;
+    background-color: #b3ba7e;
+}
+
+.historyTable tr:nth-child(even) {
+    background-color: #ddddd9;
+}
+
+.historyTable tr:nth-child(odd) {
+    background-color: #d0d3ba;
+    
+  }
+
+.historyTable th {
+    text-align: left;
+}
+
+.historyTable td {
+    text-align: left;
+    text-align: right; 
+  }
+
+.mainBtn {
+    color: black; 
+    background-color: #75aa79;
+    font-weight: bold; 
+    padding: 2px; 
+}
+
+.mainBtn:hover {
+    color: #f2ff3f; 
+    background-color: #609b64;
+}
+
+
+.learnWrapperOuter {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.learnWrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 350px; 
+}
+
+.learnHeaderText {
+    padding: 3px; 
+    display: flex;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 20px; 
+}
+
+.learnHeader {
+    display: flex;
+    flex-direction: column;
+}
+.learnHeader img{
+    width: 350px; 
+}
+
+.learnItem {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.learnInfo {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-direction: row;
+}
+
+.learnInfoBtn {
+    padding: 5px;
+    font-size: 13px;
+    font-weight: bold; 
+    background-color: #b3ba7e;
+}
+
+.learnInfoBtn:hover {
+    color: #f2ff3f; 
+    background-color: #989e6b;
+}
+
+.learnInfoOuter {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.learnInfoTable {
+    background-color: #ddddd9;
+    border-collapse: collapse;  
+    border: 1px solid black;
+    width: 350px; 
+}
+
+.learnInfoTable tr:nth-child(even) {
+    background-color: #d0d3ba;
+}
+
+.learnInfoTable tr:nth-child(odd) {
+    background-color: #ddddd9;
+  }
+
+.learnInfoTable th {
+    background-color: #b3ba7e;
+    text-align: left;
+}
+
+.learnInfoTable td {
+    font-size: 13px; 
+    text-align: left;
+    padding-left: 2px; 
+  }
+
+  .learnInfoTable tr {
+      border: 1px solid black;
+  }
+
+.learnInfoInnerTable {
+    border: 1px solid black;
+    border-collapse: collapse; 
+    width: 100%; 
+}
+
+.learnInfoInnerTable th {
+    font-size: 10px;
+}
+
+.learnInfoInnerTable td {
+    font-size: 12px;
+}
+
+tr td:last-child{
+    white-space:nowrap;
+}
+
+.knob {
+    width: 150px; 
+    height: 150px; 
+}
+
+.lotteryTable {
+    background-color: #ddddd9;
+    border-collapse: collapse;  
+    width: 350px; 
+}
+
+.lotteryTable tr:nth-child(even) {
+    background-color: #bfbfbf;
+}
+
+.lotteryTable tr:nth-child(odd) {
+    background-color: #ddddd9;
+  }
+
+.lotteryTable th {
+    background-color: #bfbfbf;
+    text-align: left;
+}
+
+.lotteryTable td {
+    font-size: 13px; 
+    text-align: left;
+    padding-left: 2px; 
+  }
+
+  .lotteryTable tr {
+  }
+
+
+  .lotteryBtns {
+      width: 350px;
+  }
+
+  .lotteryBtn {
+      width: 50%; 
+}
+
+.addNameLabel {
+    font-weight: bold;
+    font-size: 20px; 
+}
+
+.addPlayerToLotteryInput {
+    background-color: #6d6d6d;
+    width: 350px; 
+    justify-content: space-between;
+    display: flex; 
+}
+
+.lotteryHeader {
+    color: #494949
+}
+
+.addNameInput {
+    width: 50%;
 }

@@ -27,6 +27,7 @@ class Home extends Component {
         return (
             <div id="home">
                 <div id="home-2">
+                    <img src="https://i.imgur.com/KnEvuRJ.png" alt="Skrallgaming's logo" /> 
                     <div className="home-header">Welcome Skraller!</div>
                     <Login handleSuccessAuth={this.handleSuccessAuth} />
                 </div>

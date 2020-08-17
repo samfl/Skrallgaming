@@ -4,7 +4,10 @@ import Home from './components/Home';
 import Stats from './components/Stats';
 import StatsChange from './components/StatsChange';
 import Events from './components/Events';
-import History from './components/History';
+import EventsChangePast from './components/EventsChangePast';
+import EventsChangeUpcoming from './components/EventsChangeUpcoming';
+import Learn from './components/Learn';
+import Lottery from './components/Lottery';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import './index';
 
@@ -77,7 +80,10 @@ class App extends Component {
                   <Route exact path="/stats" render={props => (  <Stats {... props} /> )} />
                   <Route exact path="/changeStats" render={props => (  <StatsChange {... props} /> )} />
                   <Route exact path="/events" render={props => (  <Events {... props} /> )} />
-                  <Route exact path="/history" render={props => (  <History {... props} /> )} />
+                  <Route exact path="/eventsChangePast" render={props => (  <EventsChangePast {... props} /> )} />
+                  <Route exact path="/eventsChangeUpcoming" render={props => (  <EventsChangeUpcoming {... props} /> )} />
+                  <Route exact path="/learn" render={props => (  <Learn {... props} /> )} />
+                  <Route exact path="/lottery" render={props => (  <Lottery {... props} /> )} />
               </Switch>
           </Router>
       </div>
