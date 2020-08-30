@@ -84,62 +84,62 @@ class Lottery extends Component {
             data: [
               {
                 text: '0',
-                color: "#ddddd9",
+                color: "#c9d7e0",
                 fontColor: "white",
               },
               {
                 text: '1',
-                color: "#cececc",
+                color: "#b8cad6",
                 fontColor: "white",
               },
               {
                 text: '2',
-                color: "#bfbfbf",
+                color: "#adc1ce",
                 fontColor: "white",
               },
               {
                 text: '3',
-                color: "#adadad",
+                color: "#9cb3c1",
                 fontColor: "white",
               },
               {
                 text: '4',
-                color: "#939393",
+                color: "#8fa9ba",
                 fontColor: "white",
               },
               {
                 text: '8',
-                color: "#6d6d6d",
+                color: "#7e99aa",
                 fontColor: "white",
               },
               {
                 text: '0',
-                color: "#ddddd9",
+                color: "#6d8a9e",
                 fontColor: "white",
               },
               {
                 text: '1',
-                color: "#cececc",
+                color: "#607f93",
                 fontColor: "white",
               },
               {
                 text: '2',
-                color: "#bfbfbf",
+                color: "#517187",
                 fontColor: "white",
               },
               {
                 text: '3',
-                color: "#adadad",
+                color: "#48677c",
                 fontColor: "white",
               },
               {
                 text: '4',
-                color: "#939393",
+                color: "#3f5f75",
                 fontColor: "white",
               },
               {
                 text: '16',
-                color: "#494949",
+                color: "#305066",
                 fontColor: "white",
               },
             ],
@@ -219,7 +219,7 @@ class Lottery extends Component {
                     </div>
                 </div>
                 <div className="innerCon">
-                    <h1 className="lotteryHeader">Wheel of Death</h1>
+                    <h1 className="lotteryHeader">Skrall Plinko</h1>
                 </div>        
                 <div className="innerCon">
                     <div id="wheel"></div>

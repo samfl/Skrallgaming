@@ -54,6 +54,7 @@ class Nav extends Component {
                         <Link to="/events" className="nav-item">Events</Link>
                         <Link to="/learn" className="nav-item">Learn</Link>
                         <Link to="/lottery" className="nav-item">Lottery</Link>
+                        <Link to="/snake" className="nav-item">Snake</Link>
                         <button onClick={this.handleLogoutClick} className="nav-item">Logout</button>
                     </nav>
                 </div>

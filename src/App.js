@@ -8,6 +8,7 @@ import EventsChangePast from './components/EventsChangePast';
 import EventsChangeUpcoming from './components/EventsChangeUpcoming';
 import Learn from './components/Learn';
 import Lottery from './components/Lottery';
+import Snake from './components/Snake';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import './index';
 
@@ -84,6 +85,7 @@ class App extends Component {
                   <Route exact path="/eventsChangeUpcoming" render={props => (  <EventsChangeUpcoming {... props} /> )} />
                   <Route exact path="/learn" render={props => (  <Learn {... props} /> )} />
                   <Route exact path="/lottery" render={props => (  <Lottery {... props} /> )} />
+                  <Route exact path="/snake" render={props => (  <Snake {... props} /> )} />
               </Switch>
           </Router>
       </div>

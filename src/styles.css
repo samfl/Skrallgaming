@@ -5,7 +5,7 @@
 }
 
 html, body {
-    background-color: floralwhite;
+    background-image: linear-gradient(to bottom right, #fffbe7, #a5b0bb);
 }
 
 #home {
@@ -36,17 +36,18 @@ html, body {
 .submitInForm {
     margin-top: 5px; 
     width: 100%;
-    background-color: ivory;
+    background-color: #a5b0bb;
     border-radius: 0px;
     border-radius: 2px; 
 }
 
 .submitInForm:hover {
-    background-color: #e2ddd3;
+    background-color: #8097ad;
+    color: #D9E1E5;
 }
 
 .updateForm {
-    background-color: #d0d3ba;
+    background-color: #849A9D;
     width: 100%;
     border-radius: 0px;
     border-radius: 2px; 
@@ -96,7 +97,7 @@ html, body {
 }
 
 .navHeader {
-    color: #3a7c3f;
+    color: #334651;
 }
 
 #nav {
@@ -105,6 +106,8 @@ html, body {
     width: 400px; 
     display: flex;
     justify-content: space-around;
+    background-color: #8097ad;
+    background-image: linear-gradient(to bottom right, #8097AD, #D9E1E5);
 }
 
 .nav-item {
@@ -119,7 +122,6 @@ html, body {
 
 .nav-item:hover {
     color: #961089; 
-    text-decoration: underline; 
 }
 
 .outerCon {
@@ -132,7 +134,8 @@ html, body {
 }
 
 .innerHeaderCon {
-    background-color: #3a7c3f;
+    background-color: #334651;
+    color: #D9E1E5;
     display: flex;
     width: 350px;   
     justify-content: space-between;
@@ -193,15 +196,15 @@ html, body {
 }
 
 .playersTable tr:nth-child(even) {
-    background-color: #d0d3ba;
+    background-color: #849A9D;
 }
 
 .playersTable tr:nth-child(odd) {
-    background-color: #ddddd9;
+    background-color: #A0A6B3;
   }
 
 .playersTable th {
-    background-color: #b3ba7e;
+    background-color: #7D8AA3;
     text-align: left;
     padding: 5px;
     border-bottom: 1px solid black;
@@ -221,11 +224,11 @@ html, body {
     width: 350px; 
     justify-content: space-between;
     display: flex; 
-    background-color: #d0d3ba;
+    background-color: #849A9D;
 }
 
 .updateStatsInput {
-    background-color: #ddddd9;
+    background-color: #A0A6B3;
     width: 350px; 
     justify-content: space-between;
     display: flex; 
@@ -254,10 +257,6 @@ html, body {
     justify-content: center;
 }
 
-.changeResults {
-
-}
-
 .updateResultsSuccess {
     background-color: #51ff65;
     width: 350px; 
@@ -283,9 +282,6 @@ html, body {
     width: 153px; 
 }
 
-#stats-link {
-}
-
 .innerConStats {
     display: flex;
     justify-content: center;
@@ -304,7 +300,6 @@ html, body {
 
 .menuButtonWrapper {
     height: 100%;
-
 }
 
 .menuButtonWrapper button {
@@ -323,7 +318,7 @@ html, body {
     width: 350px; 
     display: flex;
     justify-content: center;
-    background-color: #ddddd9;
+    background-color: #A0A6B3;
     border-bottom: 1px solid black; 
     flex-direction: column;
     align-items: center;
@@ -333,7 +328,8 @@ html, body {
     width: 350px; 
     display: flex;
     justify-content: center;
-    background-color: #9120aa;
+    background-color: #334651;
+    color: #D9E1E5;
 }
 
 .eventWrapper{
@@ -352,7 +348,7 @@ html, body {
     display: flex;
     justify-content: center;
     flex-direction: column;
-    background-color: #ddddd9;
+    background-color: #A0A6B3;
     color: black; 
 }
 
@@ -369,21 +365,21 @@ html, body {
     font-size: 18px; 
     text-align: center; 
     text-decoration: underline;
-    background-color: #d0d3ba;
+    background-color: #849A9D;
 }
 
 .eventWrapperItem {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    background-color: #ddddd9;
+    background-color: #A0A6B3;
 }
 
 .eventWrapperItemEven {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    background-color: #d0d3ba;
+    background-color: #849A9D;
 }
 
 #home-2 img{
@@ -398,15 +394,15 @@ html, body {
 .historyTable .historyHeader{
     text-align: center;
     font-size: 20px;
-    background-color: #b3ba7e;
+    background-color: #7D8AA3;
 }
 
 .historyTable tr:nth-child(even) {
-    background-color: #ddddd9;
+    background-color: #A0A6B3;
 }
 
 .historyTable tr:nth-child(odd) {
-    background-color: #d0d3ba;
+    background-color: #849A9D;
     
   }
 
@@ -421,14 +417,14 @@ html, body {
 
 .mainBtn {
     color: black; 
-    background-color: #75aa79;
+    background-color: #8097AD;
     font-weight: bold; 
     padding: 2px; 
 }
 
 .mainBtn:hover {
-    color: #f2ff3f; 
-    background-color: #609b64;
+    color: #D9E1E5; 
+    background-color: #4d6072;
 }
 
 
@@ -479,12 +475,12 @@ html, body {
     padding: 5px;
     font-size: 13px;
     font-weight: bold; 
-    background-color: #b3ba7e;
+    background-color: #7D8AA3;
 }
 
 .learnInfoBtn:hover {
-    color: #f2ff3f; 
-    background-color: #989e6b;
+    color: #D9E1E5; 
+    background-color: #4d6072;
 }
 
 .learnInfoOuter {
@@ -494,22 +490,22 @@ html, body {
 }
 
 .learnInfoTable {
-    background-color: #ddddd9;
+    background-color: #A0A6B3;
     border-collapse: collapse;  
     border: 1px solid black;
     width: 350px; 
 }
 
 .learnInfoTable tr:nth-child(even) {
-    background-color: #d0d3ba;
+    background-color: #849A9D;
 }
 
 .learnInfoTable tr:nth-child(odd) {
-    background-color: #ddddd9;
+    background-color: #A0A6B3;
   }
 
 .learnInfoTable th {
-    background-color: #b3ba7e;
+    background-color: #7D8AA3;
     text-align: left;
 }
 
@@ -547,21 +543,21 @@ tr td:last-child{
 }
 
 .lotteryTable {
-    background-color: #ddddd9;
+    background-color: #A0A6B3;
     border-collapse: collapse;  
     width: 350px; 
 }
 
 .lotteryTable tr:nth-child(even) {
-    background-color: #bfbfbf;
+    background-color: #849A9D;
 }
 
 .lotteryTable tr:nth-child(odd) {
-    background-color: #ddddd9;
+    background-color: #A0A6B3;
   }
 
 .lotteryTable th {
-    background-color: #bfbfbf;
+    background-color: #7D8AA3;
     text-align: left;
 }
 
@@ -589,7 +585,8 @@ tr td:last-child{
 }
 
 .addPlayerToLotteryInput {
-    background-color: #6d6d6d;
+    background-color: #334651;
+    color: #D9E1E5;
     width: 350px; 
     justify-content: space-between;
     display: flex; 
@@ -601,4 +598,8 @@ tr td:last-child{
 
 .addNameInput {
     width: 50%;
+}
+
+#canvas {
+    
 }
